@@ -1,0 +1,26 @@
+name: Test and build
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Test remote transport and device responses
+        run: ./scripts/test.sh
+      - name: Test standalone project generation
+        run: python3 -B -m unittest discover -s tests -v
+      - name: Build native macOS app
+        if: runner.os == 'macOS'
+        run: ./scripts/build.sh "$RUNNER_TEMP/Mac TV Remote.app"
+      - name: Verify app bundle
+        if: runner.os == 'macOS'
+        run: |
+          plutil -lint "$RUNNER_TEMP/Mac TV Remote.app/Contents/Info.plist"
+          codesign --verify --strict "$RUNNER_TEMP/Mac TV Remote.app"

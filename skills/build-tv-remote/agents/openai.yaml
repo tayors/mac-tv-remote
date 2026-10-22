@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build a TV Remote"
+  short_description: "Build a native Mac remote for an ADB-enabled TV"
+  default_prompt: "Use $build-tv-remote to build and test a personalised Mac menu-bar remote for my TV."
