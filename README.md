@@ -6,6 +6,26 @@ The remote has a circular directional pad, keyboard navigation, playback and vol
 
 **Compatibility:** the original remote was tested with a TCL Smart TV Pro. Other models are unverified. Your TV must support authorised network ADB. Samsung Tizen, LG webOS, Roku, and other non-Android platforms need different transports; this release does not support them. Wake from standby depends on the TV and its network settings.
 
+## Build it with an agent
+
+Paste this into your coding agent. No skill installation is required:
+
+```text
+Use https://github.com/tayors/mac-tv-remote as the starter for my Mac TV remote.
+Read its README and start from the working app source, rather than recreating it.
+
+Identify my TV's platform and confirm that it supports network ADB. Help me find
+its actual connection address and authorise this Mac, then verify read-only
+status before sending controls. Discover the supported app shortcuts and ask
+what controls or appearance I want to customise.
+
+Build and test the remote locally. Keep personal network details in local
+preferences. Leave TV packages and picture settings alone. Tell me which checks
+used my TV and which were offline tests. No agent skills need to be installed.
+```
+
+The source and setup steps work independently of any agent. An agent is useful for changing the layout, adding verified app shortcuts, or diagnosing a connection problem.
+
 ## Build the remote
 
 Requirements:
@@ -28,26 +48,6 @@ The build creates a locally ad-hoc-signed app, not a notarised downloadable bina
 On first launch, select **Set up TV** or the settings icon. Enter a name and the TV's actual ADB `host:port`. The app has no default endpoint. Enable debugging and accept the Mac's authorisation prompt on the TV. For a pairing-code TV, complete `adb pair PAIRING_HOST:PAIRING_PORT` first, then enter its separate connection endpoint. Follow [Android's ADB instructions](https://developer.android.com/tools/adb) for your device.
 
 Leave Wake MAC and broadcast blank unless you know both values. Without network-wake details, Turn on tries the explicit Android wake key through ADB. A deeply sleeping TV may need its physical remote. If macOS asks, allow this app to access the local network; see [Apple's Local Network guidance](https://developer.apple.com/documentation/technotes/tn3179-understanding-local-network-privacy).
-
-## Personalise it with an agent
-
-Paste this into your coding agent. No skill installation is required:
-
-```text
-Use https://github.com/tayors/mac-tv-remote as the starter for my Mac TV remote.
-Read its README and start from the working app source, rather than recreating it.
-
-Identify my TV's platform and confirm that it supports network ADB. Help me find
-its actual connection address and authorise this Mac, then verify read-only
-status before sending controls. Discover the supported app shortcuts and ask
-what controls or appearance I want to customise.
-
-Build and test the remote locally. Keep personal network details in local
-preferences. Leave TV packages and picture settings alone. Tell me which checks
-used my TV and which were offline tests. No agent skills need to be installed.
-```
-
-The source and setup steps work independently of any agent. An agent is useful for changing the layout, adding verified app shortcuts, or diagnosing a connection problem.
 
 ## Controls and connections
 
