@@ -10,7 +10,7 @@ cat > "$REMOTE_APP_PATH/Contents/Info.plist" <<'PLIST'
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0"><dict>
 <key>CFBundleExecutable</key><string>TVRemote</string>
-<key>CFBundleIdentifier</key><string>io.github.tayobrahm.mactvremote</string>
+<key>CFBundleIdentifier</key><string>io.github.tayors.mactvremote</string>
 <key>CFBundleName</key><string>Mac TV Remote</string>
 <key>CFBundleDisplayName</key><string>Mac TV Remote</string>
 <key>CFBundlePackageType</key><string>APPL</string>

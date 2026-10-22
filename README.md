@@ -11,7 +11,7 @@ The remote has a circular directional pad, keyboard navigation, playback and vol
 In Codex, ask the built-in skill installer:
 
 ```text
-$skill-installer install https://github.com/tayobrahm/mac-tv-remote/tree/main/skills/build-tv-remote
+$skill-installer install https://github.com/tayors/mac-tv-remote/tree/main/skills/build-tv-remote
 ```
 
 Then use:
@@ -42,7 +42,7 @@ Requirements:
 - An Android/Google TV that allows network ADB, on a network reachable from the Mac.
 
 ```sh
-git clone https://github.com/tayobrahm/mac-tv-remote.git
+git clone https://github.com/tayors/mac-tv-remote.git
 cd mac-tv-remote
 ./scripts/test.sh
 ./scripts/build.sh
