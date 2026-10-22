@@ -6,11 +6,11 @@ import shutil
 
 
 def create(destination):
-    source = Path(__file__).resolve().parent.parent / 'assets' / 'starter'
+    source = Path(__file__).resolve().parent.parent / 'app'
     destination = Path(destination).expanduser().resolve()
     # A destination inside the source could recursively copy itself.
     if destination == source or source in destination.parents:
-        raise ValueError('Choose a destination outside the starter assets.')
+        raise ValueError('Choose a destination outside the app source directory.')
     if destination.exists():
         raise FileExistsError('Destination already exists; choose a new project directory.')
     shutil.copytree(source, destination, ignore=shutil.ignore_patterns('__pycache__', '*.pyc', '*.app', '.DS_Store'))

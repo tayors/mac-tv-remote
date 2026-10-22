@@ -4,7 +4,7 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-SPEC = importlib.util.spec_from_file_location('scaffold', ROOT / 'skills/build-tv-remote/scripts/create_remote.py')
+SPEC = importlib.util.spec_from_file_location('scaffold', ROOT / 'scripts/create_remote.py')
 scaffold = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(scaffold)
 
@@ -25,9 +25,9 @@ class ScaffoldTests(unittest.TestCase):
                 scaffold.create(directory)
             self.assertEqual(sentinel.read_text(), 'user content')
 
-    def test_destination_inside_assets_is_rejected(self):
+    def test_destination_inside_app_is_rejected(self):
         with self.assertRaises(ValueError):
-            scaffold.create(ROOT / 'skills/build-tv-remote/assets/starter/nested-copy')
+            scaffold.create(ROOT / 'app/nested-copy')
 
 
 if __name__ == '__main__':
